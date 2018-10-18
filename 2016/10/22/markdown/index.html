@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="markdown语法"/>
+
+
+
+
+  <meta name="keywords" content="markdown, fhammer博客" />
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="fhammer博客">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.10.1" />
+
+
+
+<link rel="canonical" href="http://fhammer.github.io/2016/10/22/markdown/"/>
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css" />
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.10.1" />
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true};
+</script>
+
+    <title> markdown语法 - fhammer博客 </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">fhammer博客</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            首页
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">fhammer博客</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          markdown语法
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-10-22
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#插入篇"><span class="toc-text">插入篇</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#插入图片"><span class="toc-text">插入图片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#插入链接"><span class="toc-text">插入链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#链接又分为行内式、参考式和-自动链接："><span class="toc-text">链接又分为行内式、参考式和 自动链接：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#列表篇"><span class="toc-text">列表篇</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-有序列表"><span class="toc-text">1. 有序列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#无序列表"><span class="toc-text">无序列表</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#字体篇"><span class="toc-text">字体篇</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#标题"><span class="toc-text">标题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一号"><span class="toc-text">一号</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#二号"><span class="toc-text">二号</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#三号"><span class="toc-text">三号</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#四号"><span class="toc-text">四号</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#五号"><span class="toc-text">五号</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一级标题"><span class="toc-text">一级标题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#二级标题"><span class="toc-text">二级标题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#引用"><span class="toc-text">引用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#这是一个四级标题"><span class="toc-text">这是一个四级标题</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#强调"><span class="toc-text">强调</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码框"><span class="toc-text">代码框</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#换行"><span class="toc-text">换行</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#常用弥补Markdown的Html标签"><span class="toc-text">常用弥补Markdown的Html标签</span></a></li></ol>
+    </div>
+  </div>
+
+
+
+    <div class="post-content">
+      
+        <p>这里是关于markdown语法的学习的简要的记录总结，简单的介绍了一些常用的使用方式<br><a id="more"></a></p>
+<h1 id="插入篇"><a href="#插入篇" class="headerlink" title="插入篇"></a>插入篇</h1><p>图片：<img src="" alt="">    <img src="图片地址" alt="图片文本(可忽略)"></p>
+<p>链接：<a href=""></a>     <a href="链接地址">链接文本</a></p>
+<h3 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h3><p><img src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&amp;quality=100&amp;size=b4000_4000&amp;sec=1462934658&amp;di=33907220829595e75f8ec57253592518&amp;src=http://img2.3lian.com/img2007/11/11/014.jpg" alt="这个是插入图片"></p>
+<h3 id="插入链接"><a href="#插入链接" class="headerlink" title="插入链接"></a>插入链接</h3><ol>
+<li><p><a href="https:www.baidu.com" target="_blank" rel="noopener">百度链接</a></p>
+</li>
+<li><p><a href="BId:https://www.baidu.com" target="_blank" rel="noopener">百度链接id</a>//[id]:<a href="https://www.baidu.com" target="_blank" rel="noopener">https://www.baidu.com</a>  //用id装url,可以实现分离url,避免直接写URL,特别是要复用的时候,抽取一个简洁的字段替代之,不失为一种优雅的做法.</p>
+</li>
+<li><p><a href="Bid">百度链接</a></p>
+</li>
+<li><p><a href="https://www.baidu.com" target="_blank" rel="noopener">https://www.baidu.com</a></p>
+</li>
+</ol>
+<h3 id="链接又分为行内式、参考式和-自动链接："><a href="#链接又分为行内式、参考式和-自动链接：" class="headerlink" title="链接又分为行内式、参考式和 自动链接："></a>链接又分为行内式、参考式和 自动链接：</h3><p>这是行内式链接：<a href="http://connorlin.github.io" target="_blank" rel="noopener">ConnorLin’s Blog</a>。</p>
+<p>这是参考式链接：<a href="http://connorlin.github.io/" title="ConnorLin&#39;s Blog" target="_blank" rel="noopener">ConnorLin’s Blog</a>，其中url为链接标记，可置于文中任意位置。</p>
+<p>链接标记格式为：[链接标记文本]:  链接地址  链接title(可忽略)</p>
+<p>这是自动链接：直接使用<code>&lt;&gt;</code>括起来<a href="http://connorlin.github.io" target="_blank" rel="noopener">http://connorlin.github.io</a></p>
+<p>这是图片：<img src="http://upload.jianshu.io/users/upload_avatars/1581984/292857b31036.jpg?imageMogr/thumbnail/90x90/quality/100" alt=""></p>
+<h1 id="列表篇"><a href="#列表篇" class="headerlink" title="列表篇"></a>列表篇</h1><h2 id="1-有序列表"><a href="#1-有序列表" class="headerlink" title="1. 有序列表"></a>1. 有序列表</h2><p>“数字.” + 空格</p>
+<p>ps:</p>
+<ol>
+<li>item1</li>
+<li>item2</li>
+<li>item3</li>
+</ol>
+<p>或者</p>
+<p>“*” + 空格 + “数字” + 空格 + 点</p>
+<ul>
+<li><ol>
+<li>sjdadscd</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>dsckdscddcj</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>dsdchdihjdwkjka</li>
+</ol>
+</li>
+</ul>
+<p>或者</p>
+<p>“-“ +数字</p>
+<ul>
+<li>1</li>
+<li>2</li>
+<li>3</li>
+<li>4</li>
+</ul>
+<h2 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h2><p>无序列表只需要在有序列表的基础上去掉数字就可以达到无序列表的效果</p>
+<ul>
+<li>Red</li>
+<li>Green</li>
+<li>Blue</li>
+</ul>
+<ul>
+<li>Red</li>
+<li>Green</li>
+<li>Blue</li>
+</ul>
+<ul>
+<li>Red</li>
+<li>Green</li>
+<li>Blue</li>
+</ul>
+<h1 id="字体篇"><a href="#字体篇" class="headerlink" title="字体篇"></a>字体篇</h1><h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><ul>
+<li><ol>
+<li>#可以表示标题</li>
+</ol>
+</li>
+</ul>
+<h1 id="一号"><a href="#一号" class="headerlink" title="一号"></a>一号</h1><h2 id="二号"><a href="#二号" class="headerlink" title="二号"></a>二号</h2><h3 id="三号"><a href="#三号" class="headerlink" title="三号"></a>三号</h3><h4 id="四号"><a href="#四号" class="headerlink" title="四号"></a>四号</h4><h5 id="五号"><a href="#五号" class="headerlink" title="五号"></a>五号</h5><ul>
+<li><ol start="2">
+<li>=和-可以表示标题</li>
+</ol>
+</li>
+</ul>
+<p>在 标题底下 加上任意个=代表一级标题，-代表二级标题</p>
+<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><blockquote>
+<p>这里是引用 是不是可以写代码</p>
+</blockquote>
+<blockquote>
+<p>这是一段引用    //在<code>&gt;</code>后面有 1 个空格</p>
+<pre><code>这是引用的代码块形式    //在`&gt;`后面有 5 个空格
+</code></pre><p>代码例子：</p>
+<pre><code>protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+}
+</code></pre></blockquote>
+<blockquote>
+<p>一级引用</p>
+<blockquote>
+<p>二级引用</p>
+<blockquote>
+<p>三级引用</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<h4 id="这是一个四级标题"><a href="#这是一个四级标题" class="headerlink" title="这是一个四级标题"></a>这是一个四级标题</h4><ol>
+<li>这是第一行列表项</li>
+<li>这是第二行列表项</li>
+</ol>
+</blockquote>
+<h2 id="强调"><a href="#强调" class="headerlink" title="强调"></a>强调</h2><p>两个<em>或-代表加粗，一个</em>或-代表斜体，~~代表删除。</p>
+<p><strong>粗体</strong></p>
+<p><em>斜体</em></p>
+<p><strong>加粗文本</strong> 或者 <strong>加粗文本</strong></p>
+<p><em>斜体文本</em>  或者<em>斜体文本</em></p>
+<p><del>删除文本</del></p>
+<h2 id="代码框"><a href="#代码框" class="headerlink" title="代码框"></a>代码框</h2><p>代码分为行内代码和代码块。</p>
+<p>行内代码使用 <code>代码</code> 标识，可嵌入文字中<br>代码块使用4个空格或<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>这里是代码<br><figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">代码语法高亮在 ```后面加上空格和语言名称即可</span><br><span class="line"></span><br><span class="line">``` 语言</span><br><span class="line"><span class="comment">//注意语言前面有空格</span></span><br><span class="line">这里是代码</span><br></pre></td></tr></table></figure></p>
+<p>这是行内代码<code>onCreate(Bundle savedInstanceState)</code>的例子。</p>
+<p>这是代码块和语法高亮：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 注意java前面有空格</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    setContentView(R.layout.activity_main);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>public void forEachRemaining(Consumer&lt;? super K&gt; action{
+
+        if (action == null)
+            throw new NullPointerException();
+        if (est &lt; 0)
+            getEstimate(); // force initialization
+        TreeMap.Entry&lt;K,V&gt; f = fence, e, p, pr;
+        if ((e = current) != null &amp;&amp; e != f) {
+            current = f; // exhaust
+            do {
+                action.accept(e.key);
+                if ((p = e.left) != null) {
+                    while ((pr = p.right) != null)
+                        p = pr;
+                }
+                else {
+                    while ((p = e.parent) != null &amp;&amp; e == p.left)
+                        e = p;
+                }
+            } while ((e = p) != null &amp;&amp; e != f);
+            if (tree.modCount != expectedModCount)
+                throw new ConcurrentModificationException();
+        }
+    }
+</code></pre><h2 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h2><p>在行尾添加两个空格加回车表示换行：</p>
+<blockquote>
+<p>这是一行后面加两个空格  换行</p>
+</blockquote>
+<h1 id="常用弥补Markdown的Html标签"><a href="#常用弥补Markdown的Html标签" class="headerlink" title="常用弥补Markdown的Html标签"></a>常用弥补Markdown的Html标签</h1><p><u>下划线</u>  </p>
+<font face="微软雅黑" color="red" size="6">字体及字体颜色和大小</font>
+
+<font color="#0000ff">字体颜色</font>
+
+<p>使用html标签<code>&lt;br/&gt;</code><br>换行</p>
+<p align="left">居左文本</p><br><p align="center">居中文本</p><br><p align="right">居右文本</p>
+
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="http://fhammer.github.io">hammer</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="http://fhammer.github.io/2016/10/22/markdown/">http://fhammer.github.io/2016/10/22/markdown/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/markdown/">markdown</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2016/10/23/设计模式/进程和线程/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">线程和进程概述</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    
+    
+  </nav>
+
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/ahonn" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2018
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">hammer</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  
+
+  
+
+
+
+    
+  
+
+
+
+  
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.10.1"></script>
+
+  </body>
+</html>

@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="Java知识问答(二)"/>
+
+
+
+
+  <meta name="keywords" content="总结, fhammer博客" />
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="fhammer博客">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.10.1" />
+
+
+
+<link rel="canonical" href="http://fhammer.github.io/2017/10/29/Java知识问答(二)/"/>
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css" />
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.10.1" />
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true};
+</script>
+
+    <title> Java知识问答(二) - fhammer博客 </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">fhammer博客</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            首页
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">fhammer博客</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          Java知识问答(二)
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-10-29
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Java进阶/">Java进阶</a>
+            
+              <a href="/categories/Java进阶/Java/">Java</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Volatile的特征："><span class="toc-text">Volatile的特征：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Volatile的内存语义："><span class="toc-text">Volatile的内存语义：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Volatile的重排序"><span class="toc-text">Volatile的重排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内存屏障-内存栅栏"><span class="toc-text">内存屏障/内存栅栏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#happens-before原则"><span class="toc-text">happens-before原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java是如何实现跨平台的？"><span class="toc-text">Java是如何实现跨平台的？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#手机扫二维码登录是怎么实现的？"><span class="toc-text">手机扫二维码登录是怎么实现的？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java-线程有哪些状态，这些状态之间是如何转化的？"><span class="toc-text">Java 线程有哪些状态，这些状态之间是如何转化的？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#List接口、Set接口和Map接口的区别"><span class="toc-text">List接口、Set接口和Map接口的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cookie和Session的区别？"><span class="toc-text">Cookie和Session的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java中的equals和hashCode方法详解"><span class="toc-text">Java中的equals和hashCode方法详解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java中CAS算法"><span class="toc-text">Java中CAS算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TimSort原理"><span class="toc-text">TimSort原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#comparable与comparator的区别？"><span class="toc-text">comparable与comparator的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#手写单例模式（线程安全）"><span class="toc-text">手写单例模式（线程安全）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java线程间的通信方式？"><span class="toc-text">Java线程间的通信方式？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java8的内存分代改进"><span class="toc-text">Java8的内存分代改进</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对Java内存模型的理解以及其在并发当中的作用？"><span class="toc-text">对Java内存模型的理解以及其在并发当中的作用？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Arrays和Collections-对于sort的不同实现原理？"><span class="toc-text">Arrays和Collections 对于sort的不同实现原理？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java中object常用方法"><span class="toc-text">Java中object常用方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对于Java中多态的理解"><span class="toc-text">对于Java中多态的理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Session机制？"><span class="toc-text">Session机制？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java序列化与反序列化是什么？为什么需要序列化与反序列化？如何实现Java序列化与反序列化？"><span class="toc-text">Java序列化与反序列化是什么？为什么需要序列化与反序列化？如何实现Java序列化与反序列化？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring-AOP-实现原理？"><span class="toc-text">Spring AOP 实现原理？</span></a></li></ol>
+    </div>
+  </div>
+
+
+
+    <div class="post-content">
+      
+        <p><strong>摘要：</strong></p>
+<p>本篇主要内容是：Java 常见的知识总结，知识点提升,常见问答二。</p>
+<a id="more"></a>
+<h2 id="Volatile的特征："><a href="#Volatile的特征：" class="headerlink" title="Volatile的特征："></a>Volatile的特征：</h2><p>A、原子性<br>B、可见性</p>
+<h2 id="Volatile的内存语义："><a href="#Volatile的内存语义：" class="headerlink" title="Volatile的内存语义："></a>Volatile的内存语义：</h2><p>当写一个volatile变量时，JMM会把线程对应的本地内存中的共享变量值刷新到主内存。</p>
+<p><center><img src="http://img.blog.csdn.net/20170304131728618?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2luYXRfMzU1MTIyNDU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></center></p>
+<p>当读一个volatile变量时，JMM会把线程对应的本地内存置为无效，线程接下来将从主内存中读取共享变量。</p>
+<p><center><img src="http://img.blog.csdn.net/20170304131753344?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2luYXRfMzU1MTIyNDU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></center></p>
+<h2 id="Volatile的重排序"><a href="#Volatile的重排序" class="headerlink" title="Volatile的重排序"></a>Volatile的重排序</h2><p>1、当第二个操作为volatile写操做时,不管第一个操作是什么(普通读写或者volatile读写),都不能进行重排序。这个规则确保volatile写之前的所有操作都不会被重排序到volatile之后;</p>
+<p>2、当第一个操作为volatile读操作时,不管第二个操作是什么,都不能进行重排序。这个规则确保volatile读之后的所有操作都不会被重排序到volatile之前;</p>
+<p>3、当第一个操作是volatile写操作时,第二个操作是volatile读操作,不能进行重排序。</p>
+<p>这个规则和前面两个规则一起构成了:两个volatile变量操作不能够进行重排序；</p>
+<p>除以上三种情况以外可以进行重排序。</p>
+<p>比如：</p>
+<p>1、第一个操作是普通变量读/写,第二个是volatile变量的读；<br>2、第一个操作是volatile变量的写,第二个是普通变量的读/写；</p>
+<hr>
+<h2 id="内存屏障-内存栅栏"><a href="#内存屏障-内存栅栏" class="headerlink" title="内存屏障/内存栅栏"></a>内存屏障/内存栅栏</h2><p>  内存屏障（Memory Barrier，或有时叫做内存栅栏，Memory Fence）是一种CPU指令，用于控制特定条件下的重排序和内存可见性问题。Java编译器也会根据内存屏障的规则禁止重排序。（也就是让一个CPU处理单元中的内存状态对其它处理单元可见的一项技术。）</p>
+<p>内存屏障可以被分为以下几种类型：</p>
+<p>LoadLoad屏障：对于这样的语句Load1; LoadLoad; Load2，在Load2及后续读取操作要读取的数据被访问前，保证Load1要读取的数据被读取完毕。</p>
+<p>StoreStore屏障：对于这样的语句Store1; StoreStore; Store2，在Store2及后续写入操作执行前，保证Store1的写入操作对其它处理器可见。</p>
+<p>LoadStore屏障：对于这样的语句Load1; LoadStore; Store2，在Store2及后续写入操作被刷出前，保证Load1要读取的数据被读取完毕。</p>
+<p>StoreLoad屏障：对于这样的语句Store1; StoreLoad; Load2，在Load2及后续所有读取操作执行前，保证Store1的写入对所有处理器可见。它的开销是四种屏障中最大的。        </p>
+<p>在大多数处理器的实现中，这个屏障是个万能屏障，兼具其它三种内存屏障的功能。</p>
+<p>内存屏障阻碍了CPU采用优化技术来降低内存操作延迟，必须考虑因此带来的性能损失。为了达到最佳性能，最好是把要解决的问题模块化，这样处理器可以按单元执行任务，然后在任务单元的边界放上所有需要的内存屏障。采用这个方法可以让处理器不受限的执行一个任务单元。合理的内存屏障组合还有一个好处是：缓冲区在第一次被刷后开销会减少，因为再填充改缓冲区不需要额外工作了。</p>
+<hr>
+<h2 id="happens-before原则"><a href="#happens-before原则" class="headerlink" title="happens-before原则"></a>happens-before原则</h2><p><center><img src="http://img.blog.csdn.net/20170304133432492?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2luYXRfMzU1MTIyNDU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></center></p>
+<hr>
+<h2 id="Java是如何实现跨平台的？"><a href="#Java是如何实现跨平台的？" class="headerlink" title="Java是如何实现跨平台的？"></a>Java是如何实现跨平台的？</h2><p>跨平台是怎样实现的呢？这就要谈及Java虚拟机（Java Virtual Machine，简称 JVM）。</p>
+<p>JVM也是一个软件，不同的平台有不同的版本。我们编写的Java源码，编译后会生成一种 .class 文件，称为字节码文件。Java虚拟机就是负责将字节码文件翻译成特定平台下的机器码然后运行。也就是说，只要在不同平台上安装对应的JVM，就可以运行字节码文件，运行我们编写的Java程序。</p>
+<p>而这个过程中，我们编写的Java程序没有做任何改变，仅仅是通过JVM这一”中间层“，就能在不同平台上运行，真正实现了”一次编译，到处运行“的目的。</p>
+<p>JVM是一个”桥梁“，是一个”中间件“，是实现跨平台的关键，Java代码首先被编译成字节码文件，再由JVM将字节码文件翻译成机器语言，从而达到运行Java程序的目的。</p>
+<p>注意：编译的结果不是生成机器码，而是生成字节码，字节码不能直接运行，必须通过JVM翻译成机器码才能运行。不同平台下编译生成的字节码是一样的，但是由JVM翻译成的机器码却不一样。</p>
+<p>所以，运行Java程序必须有JVM的支持，因为编译的结果不是机器码，必须要经过JVM的再次翻译才能执行。即使你将Java程序打包成可执行文件（例如 .exe），仍然需要JVM的支持。</p>
+<p>注意：跨平台的是Java程序，不是JVM。JVM是用C/C++开发的，是编译后的机器码，不能跨平台，不同平台下需要安装不同版本的JVM。</p>
+<hr>
+<h2 id="手机扫二维码登录是怎么实现的？"><a href="#手机扫二维码登录是怎么实现的？" class="headerlink" title="手机扫二维码登录是怎么实现的？"></a>手机扫二维码登录是怎么实现的？</h2><p>友情链接：<a href="http://www.jianshu.com/p/7f072ac61763" target="_blank" rel="noopener">扫码登录是如何实现的？</a></p>
+<hr>
+<h2 id="Java-线程有哪些状态，这些状态之间是如何转化的？"><a href="#Java-线程有哪些状态，这些状态之间是如何转化的？" class="headerlink" title="Java 线程有哪些状态，这些状态之间是如何转化的？"></a>Java 线程有哪些状态，这些状态之间是如何转化的？</h2><p><center><img src="http://img.blog.csdn.net/20170304134110520?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2luYXRfMzU1MTIyNDU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></center></p>
+<ol>
+<li><p>新建(new)：新创建了一个线程对象。</p>
+</li>
+<li><p>可运行(runnable)：线程对象创建后，其他线程(比如main线程）调用了该对象的start()方法。该状态的线程位于可运行线程池中，等待被线程调度选中，获取cpu 的使用权 。</p>
+</li>
+<li><p>运行(running)：可运行状态(runnable)的线程获得了cpu 时间片（timeslice） ，执行程序代码。</p>
+</li>
+<li><p>阻塞(block)：阻塞状态是指线程因为某种原因放弃了cpu 使用权，也即让出了cpu timeslice，暂时停止运行。直到线程进入可运行(runnable)状态，才有机会再次获得cpu timeslice 转到运行(running)状态。阻塞的情况分三种： </p>
+</li>
+</ol>
+<p>(一). 等待阻塞：运行(running)的线程执行o.wait()方法，JVM会把该线程放入等待队列(waitting queue)中。</p>
+<p>(二). 同步阻塞：运行(running)的线程在获取对象的同步锁时，若该同步锁被别的线程占用，则JVM会把该线程放入锁池(lock pool)中。</p>
+<p>(三). 其他阻塞：运行(running)的线程执行Thread.sleep(long ms)或t.join()方法，或者发出了I/O请求时，JVM会把该线程置为阻塞状态。当sleep()状态超时、join()等待线程终止或者超时、或者I/O处理完毕时，线程重新转入可运行(runnable)状态。</p>
+<ol start="5">
+<li>死亡(dead)：线程run()、main() 方法执行结束，或者因异常退出了run()方法，则该线程结束生命周期。死亡的线程不可再次复生。</li>
+</ol>
+<hr>
+<h2 id="List接口、Set接口和Map接口的区别"><a href="#List接口、Set接口和Map接口的区别" class="headerlink" title="List接口、Set接口和Map接口的区别"></a>List接口、Set接口和Map接口的区别</h2><p>友情链接：<a href="http://blog.csdn.net/zcg_java/article/details/43232251" target="_blank" rel="noopener">List接口、Set接口和Map接口的区别</a></p>
+<hr>
+<h2 id="Cookie和Session的区别？"><a href="#Cookie和Session的区别？" class="headerlink" title="Cookie和Session的区别？"></a>Cookie和Session的区别？</h2><p>友情链接：<a href="http://blog.csdn.net/axin66ok/article/details/6175522" target="_blank" rel="noopener">Cookies 和 Session的区别</a></p>
+<hr>
+<h2 id="Java中的equals和hashCode方法详解"><a href="#Java中的equals和hashCode方法详解" class="headerlink" title="Java中的equals和hashCode方法详解"></a>Java中的equals和hashCode方法详解</h2><p>友情链接：<a href="http://www.cnblogs.com/Qian123/p/5703507.html" target="_blank" rel="noopener">Java提高篇——equals()与hashCode()方法详解</a></p>
+<hr>
+<h2 id="Java中CAS算法"><a href="#Java中CAS算法" class="headerlink" title="Java中CAS算法"></a>Java中CAS算法</h2><p>友情链接：<a href="http://www.kancloud.cn/seaboat/java-concurrent/117870" target="_blank" rel="noopener">乐观的并发策略——基于CAS的自旋</a></p>
+<hr>
+<h2 id="TimSort原理"><a href="#TimSort原理" class="headerlink" title="TimSort原理"></a>TimSort原理</h2><p>友情链接：<a href="http://baike.baidu.com/link?url=4tXLGfO_VjPOOmWTZxhiGg5EyojbWvysoIPtbxqtyEpuwoVOtl43_15ds0XYHTPrQlkucF-yr_H5XztSB9KTB2bXluoWjrCgY22SbikKiTW" target="_blank" rel="noopener">TimSort原理</a></p>
+<hr>
+<h2 id="comparable与comparator的区别？"><a href="#comparable与comparator的区别？" class="headerlink" title="comparable与comparator的区别？"></a>comparable与comparator的区别？</h2><p>友情链接：<a href="http://www.cnblogs.com/szlbm/p/5504634.html" target="_blank" rel="noopener">Comparable和Comparator的区别</a></p>
+<hr>
+<h2 id="手写单例模式（线程安全）"><a href="#手写单例模式（线程安全）" class="headerlink" title="手写单例模式（线程安全）"></a>手写单例模式（线程安全）</h2><p>友情链接：<a href="http://www.cnblogs.com/hupp/p/4487521.html" target="_blank" rel="noopener">快速理解Java中的五种单例模式</a></p>
+<hr>
+<h2 id="Java线程间的通信方式？"><a href="#Java线程间的通信方式？" class="headerlink" title="Java线程间的通信方式？"></a>Java线程间的通信方式？</h2><p>友情链接：<a href="http://www.cnblogs.com/mengdd/archive/2013/02/20/2917956.html" target="_blank" rel="noopener">Java 多线程（七） 线程间的通信——wait及notify方法</a><br>友情链接：<a href="http://www.jb51.net/article/84213.htm" target="_blank" rel="noopener">Java线程间的通信方式详解</a></p>
+<hr>
+<h2 id="Java8的内存分代改进"><a href="#Java8的内存分代改进" class="headerlink" title="Java8的内存分代改进"></a>Java8的内存分代改进</h2><p>友情链接：<a href="http://blog.csdn.net/chlu113/article/details/51890469" target="_blank" rel="noopener">Java7、Java8的堆内存有啥变化？</a></p>
+<hr>
+<h2 id="对Java内存模型的理解以及其在并发当中的作用？"><a href="#对Java内存模型的理解以及其在并发当中的作用？" class="headerlink" title="对Java内存模型的理解以及其在并发当中的作用？"></a>对Java内存模型的理解以及其在并发当中的作用？</h2><p>友情链接：<a href="http://www.cnblogs.com/_popc/p/6096517.html" target="_blank" rel="noopener">对Java内存模型的理解以及其在并发当中的作用？</a></p>
+<hr>
+<h2 id="Arrays和Collections-对于sort的不同实现原理？"><a href="#Arrays和Collections-对于sort的不同实现原理？" class="headerlink" title="Arrays和Collections 对于sort的不同实现原理？"></a>Arrays和Collections 对于sort的不同实现原理？</h2><p>1、Arrays.sort()<br>该算法是一个经过调优的快速排序，此算法在很多数据集上提供N*log(N)的性能，这导致其他快速排序会降低二次型性能。 </p>
+<p>2、Collections.sort()<br>该算法是一个经过修改的合并排序算法（其中，如果低子列表中的最高元素效益高子列表中的最低元素，则忽略合并）。此算法可提供保证的N*log(N)的性能，此实现将指定列表转储到一个数组中，然后再对数组进行排序，在重置数组中相应位置处每个元素的列表上进行迭代。这避免了由于试图原地对链接列表进行排序而产生的$ n^2log(n)$性能。 </p>
+<hr>
+<h2 id="Java中object常用方法"><a href="#Java中object常用方法" class="headerlink" title="Java中object常用方法"></a>Java中object常用方法</h2><p>1、clone()<br>2、equals()<br>3、finalize()<br>4、getclass()<br>5、hashcode()<br>6、notify()<br>7、notifyAll()<br>8、toString()</p>
+<hr>
+<h2 id="对于Java中多态的理解"><a href="#对于Java中多态的理解" class="headerlink" title="对于Java中多态的理解"></a>对于Java中多态的理解</h2><p>所谓多态就是指程序中定义的引用变量所指向的具体类型和通过该引用变量发出的方法调用在编程时并不确定，而是在程序运行期间才确定，即一个引用变量到底会指向哪个类的实例对象，该引用变量发出的方法调用到底是哪个类中实现的方法，必须在由程序运行期间才能决定。因为在程序运行时才确定具体的类，这样，不用修改源程序代码，就可以让引用变量绑定到各种不同的类实现上，从而导致该引用调用的具体方法随之改变，即不修改程序代码就可以改变程序运行时所绑定的具体代码，让程序可以选择多个运行状态，这就是多态性。</p>
+<p>多态的定义：指允许不同类的对象对同一消息做出响应。即同一消息可以根据发送对象的不同而采用多种不同的行为方式。（发送消息就是函数调用）</p>
+<p>Java实现多态有三个必要条件：继承、重写、父类引用指向子类对象。</p>
+<p>继承：在多态中必须存在有继承关系的子类和父类。</p>
+<p>重写：子类对父类中某些方法进行重新定义，在调用这些方法时就会调用子类的方法。</p>
+<p>父类引用指向子类对象：在多态中需要将子类的引用赋给父类对象，只有这样该引用才能够具备技能调用父类的方法和子类的方法。</p>
+<p>实现多态的技术称为：动态绑定（dynamic binding），是指在执行期间判断所引用对象的实际类型，根据其实际的类型调用其相应的方法。</p>
+<p>多态的作用：消除类型之间的耦合关系。</p>
+<hr>
+<h2 id="Session机制？"><a href="#Session机制？" class="headerlink" title="Session机制？"></a>Session机制？</h2><p>友情链接 ：<a href="http://justsee.iteye.com/blog/1570652" target="_blank" rel="noopener">Session机制详解</a></p>
+<hr>
+<h2 id="Java序列化与反序列化是什么？为什么需要序列化与反序列化？如何实现Java序列化与反序列化？"><a href="#Java序列化与反序列化是什么？为什么需要序列化与反序列化？如何实现Java序列化与反序列化？" class="headerlink" title="Java序列化与反序列化是什么？为什么需要序列化与反序列化？如何实现Java序列化与反序列化？"></a>Java序列化与反序列化是什么？为什么需要序列化与反序列化？如何实现Java序列化与反序列化？</h2><p>友情链接 ：<a href="http://blog.csdn.net/wangloveall/article/details/7992448/" target="_blank" rel="noopener"> Java序列化与反序列化</a></p>
+<hr>
+<h2 id="Spring-AOP-实现原理？"><a href="#Spring-AOP-实现原理？" class="headerlink" title="Spring AOP 实现原理？"></a>Spring AOP 实现原理？</h2><p>友情链接 ：<a href="http://blog.csdn.net/moreevan/article/details/11977115/" target="_blank" rel="noopener">Spring AOP 实现原理</a></p>
+<hr>
+<p> Servlet 工作原理？ </p>
+<p>友情链接 ：<a href="http://www.ibm.com/developerworks/cn/java/j-lo-servlet/" target="_blank" rel="noopener">Servlet 工作原理解析</a></p>
+<hr>
+<p>Java NIO和IO的区别？ </p>
+<p>友情链接 ：<a href="http://www.jb51.net/article/50621.htm" target="_blank" rel="noopener">Java NIO和IO的区别  </a></p>
+<hr>
+<p> Java中堆内存和栈内存区别？ </p>
+<p>友情链接 ：<a href="http://www.cnblogs.com/whgw/archive/2011/09/29/2194997.html" target="_blank" rel="noopener">Java中堆内存和栈内存详解  </a></p>
+<hr>
+<p> 反射讲一讲，主要是概念,都在哪需要反射机制，反射的性能，如何优化？ </p>
+<p> 反射机制的定义：</p>
+<p>是在运行状态中，对于任意的一个类，都能够知道这个类的所有属性和方法，对任意一个对象都能够通过反射机制调用一个类的任意方法，这种动态获取类信息及动态调用类对象方法的功能称为java的反射机制。</p>
+<p>反射的作用：</p>
+<p>1、动态地创建类的实例，将类绑定到现有的对象中，或从现有的对象中获取类型。</p>
+<p>2、应用程序需要在运行时从某个特定的程序集中载入一个特定的类。</p>
+<hr>
+<p> 如何保证RESTful API安全性 ？ </p>
+<p>友情链接：<a href="http://blog.csdn.net/ywk253100/article/details/25654101" target="_blank" rel="noopener"> 如何设计好的RESTful API之安全性</a></p>
+<hr>
+<p> 如何预防Mysql注入？ </p>
+<p>友情链接：<a href="http://www.jb51.net/article/87948.htm" target="_blank" rel="noopener">MySQL 及 SQL 注入与防范方法</a></p>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="http://fhammer.github.io">hammer</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="http://fhammer.github.io/2017/10/29/Java知识问答(二)/">http://fhammer.github.io/2017/10/29/Java知识问答(二)/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/总结/">总结</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+    
+      <a class="next" href="/2017/10/29/Java知识问答(一)/">
+        <span class="next-text nav-default">Java知识问答(一)</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/ahonn" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2018
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">hammer</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  
+
+  
+
+
+
+    
+  
+
+
+
+  
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.10.1"></script>
+
+  </body>
+</html>
